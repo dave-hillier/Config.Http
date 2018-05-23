@@ -9,7 +9,10 @@ using Microsoft.Extensions.Primitives;
 
 namespace Config.Http
 {
-  class HttpConfigurationProvider : ConfigurationProvider
+  /// <summary>
+  /// Obtains configuration from a given Url
+  /// </summary>
+  public class HttpConfigurationProvider : ConfigurationProvider
   {
     HttpConfigurationSource Source { get; }
     public HttpConfigurationProvider(HttpConfigurationSource source)
@@ -29,13 +32,7 @@ namespace Config.Http
     private async Task LoadAsync()
     {
       var response = await Client.GetAsync(ConfigUrl);
-
       var stream = await response.Content.ReadAsStreamAsync();
-
-      var reader = new StreamReader(stream);
-      string s = reader.ReadToEnd();
-      var ms = new MemoryStream(Encoding.UTF8.GetBytes(s));
-
       Data = JsonConfigurationFileParser.Parse(stream);
     }
   }

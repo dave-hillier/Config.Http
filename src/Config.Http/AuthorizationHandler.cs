@@ -7,7 +7,9 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 namespace Config.Http
 {
-  public class AuthorizationHandler : DelegatingHandler
+  // this class provides authentication in a very similar way to https://github.com/aspnet/Configuration/blob/cfe8c9ee/src/Config.AzureKeyVault/AzureKeyVaultConfigurationExtensions.cs#L68
+  // however, I have chosen to use the delegating handler so that the token can be used on multiple requests and new one obtained when expired.
+  internal class AuthorizationHandler : DelegatingHandler
   {
     public string ClientId { get; set; }
     public string ClientSecret { get; set; }

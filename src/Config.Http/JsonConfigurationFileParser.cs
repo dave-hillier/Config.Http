@@ -9,7 +9,8 @@ using Newtonsoft.Json.Linq;
 
 namespace Config.Http
 {
-  // TODO: this is copy pasted from https://github.com/aspnet/Configuration/blob/dev/src/Config.Json/JsonConfigurationFileParser.cs
+  // HACK: this is copy pasted from https://github.com/aspnet/Configuration/blob/dev/src/Config.Json/JsonConfigurationFileParser.cs
+  // It's an internal class so I can't access it any other way
   internal class JsonConfigurationFileParser
   {
     private JsonConfigurationFileParser() { }

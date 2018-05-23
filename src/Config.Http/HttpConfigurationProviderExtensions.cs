@@ -3,8 +3,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace Config.Http
 {
+  /// <summary>
+  /// Extension methods for registering HttpConfigurationProvider
+  /// </summary>
   public static class HttpConfigurationProviderExtensions
   {
+    /// <summary>
+    /// Extension methods for registering HttpConfigurationProvider
+    /// </summary>
     public static IConfigurationBuilder AddHttpService(
       this IConfigurationBuilder configurationBuilder,
       string configUrl,
